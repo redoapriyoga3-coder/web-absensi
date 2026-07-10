@@ -1,14 +1,13 @@
 <?php
-$host = getenv('MYSQLHOST');
-$user = getenv('MYSQLUSER');
-$pass = getenv('MYSQLPASSWORD');
-$db   = getenv('MYSQLDATABASE');
-$port = getenv('MYSQLPORT');
-
-$conn = mysqli_connect($host, $user, $pass, $db, $port);
+$conn = mysqli_connect(
+    getenv('MYSQLHOST'),
+    getenv('MYSQLUSER'),
+    getenv('MYSQLPASSWORD'),
+    getenv('MYSQLDATABASE'),
+    getenv('MYSQLPORT')
+);
 
 if (!$conn) {
-    // Jika gagal, tampilkan pesan agar kita tahu masalahnya
     die("Koneksi gagal: " . mysqli_connect_error());
 }
 ?>
