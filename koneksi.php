@@ -1,19 +1,9 @@
 <?php
-// Mengambil URL koneksi dari Environment Variables Railway
 $url = getenv('DATABASE_URL');
+if (!$url) { die("Error: DATABASE_URL tidak diset di Railway"); }
+
 $dbparts = parse_url($url);
+$conn = mysqli_connect($dbparts['host'], $dbparts['user'], $dbparts['pass'], ltrim($dbparts['path'], '/'), $dbparts['port']);
 
-$host = $dbparts['host'];
-$user = $dbparts['user'];
-$pass = $dbparts['pass'];
-$db   = ltrim($dbparts['path'], '/');
-$port = $dbparts['port'];
-
-// Membuat koneksi ke database MySQL
-$conn = mysqli_connect($host, $user, $pass, $db, $port);
-
-// Cek apakah koneksi berhasil
-if (!$conn) {
-    die("Koneksi gagal: " . mysqli_connect_error());
-}
+if (!$conn) { die("Koneksi gagal: " . mysqli_connect_error()); }
 ?>
