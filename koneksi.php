@@ -1,5 +1,4 @@
 <?php
-// Mengambil variabel dari dashboard Railway
 $host = getenv('MYSQLHOST');
 $user = getenv('MYSQLUSER');
 $pass = getenv('MYSQLPASSWORD');
@@ -9,6 +8,7 @@ $port = getenv('MYSQLPORT');
 $conn = mysqli_connect($host, $user, $pass, $db, $port);
 
 if (!$conn) {
+    // Jika gagal, tampilkan pesan agar kita tahu masalahnya
     die("Koneksi gagal: " . mysqli_connect_error());
 }
 ?>
