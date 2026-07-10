@@ -1,11 +1,4 @@
 <?php
-// Cek apakah file koneksi ada
-if (!file_exists('koneksi.php')) {
-    die("File koneksi.php tidak ditemukan!");
-}
-include 'koneksi.php';
-
-// Menampilkan pesan sederhana agar kita tahu web sudah terbaca
-echo "<h1>Website Berhasil Terhubung!</h1>";
-echo "<p>Sistem Absensi Online sedang berjalan dengan baik.</p>";
+echo "<h1>Halo! Website ini sudah online dengan benar.</h1>";
+echo "<p>Tidak ada koneksi database, hanya halaman utama.</p>";
 ?>
